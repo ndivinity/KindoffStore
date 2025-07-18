@@ -3,9 +3,9 @@
 @{
     ViewData["title"] = "Create Product";
 }
+@model ProductUserRequest
 
 <div class="app_container" id="app_container" itemid="app_container" name="app_container">@{
-    @model ProductUserRequest
     @using(Html.BeginForm("CreateProductResponse", "Product", FormMethod.Post)) {
         <fieldset>
             <label for="userform_name">Product Name:</label>
@@ -20,6 +20,9 @@
 
             <label for="userform_existence">Product Existence:</label>
             <input class="product_formfield" name="userform_existence" asp-for="userForm.existence" /> <br/>
+
+            <label for="userform_price">Product Price:</label>
+            <input class="product_formfield" name="userform_price" asp-for="userForm.price" /> <br/>
 
 
             <input class="product_submit_button" type="submit" value="Create Product" />

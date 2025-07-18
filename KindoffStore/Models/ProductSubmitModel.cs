@@ -14,7 +14,7 @@ public class ProductRequestModel
 public class ProductUserForm
 {
     // FIXME: This field is marked as autoincremental in the sqlite table.
-    public int? id;
+    public int id;
 
     [Required]
     [Display(Name = "Existence")]
@@ -38,9 +38,14 @@ public class ProductUserForm
     [Display(Name = "Measure Unit")]
     public ProductWeightUnit weight_unit { get; set; }
 
+    [Required]
+    [Display(Name = "Price")]
+    public decimal price { get; set; }
+
     public ProductUserForm() { }
 }
 
+// MINOR TODO: Fix the name consistency.
 public class ProductUserRequest
 {
     public ProductRequestModel requestModel { get; set; }

@@ -83,8 +83,18 @@ public class ProductManager
         }
 
         // Modify product
-        // TODO: Do further checks
-        db.products.Update(new_product_data);
+        // TODO: Do further checks.
+        Product prod_ref = db.products.FirstOrDefault(p => p.product_id == product_id)!;
+
+        if(prod_ref == null) return false;
+
+        // TODO: This is NOT modifying a product, and
+        // if it is it sucks.
+        // Do the modifying properly pls.
+        db.products.Remove(prod_ref);
+        db.products.Add(new_product_data);
+        db.SaveChanges();
+
         return true;
     }
 

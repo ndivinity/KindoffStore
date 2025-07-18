@@ -1,19 +1,30 @@
 ﻿@using Databasing.Entities;
 
+@{
+    ViewData["title"] = "Product modified";
+}
 
 <div class="app_container" id="app_container" name="app_container">@{
     @if(ViewData["screen_state"]! == null)
     {
         <p>Failed to obtain the state of the screen to render.</p>
-    } else if((string)ViewData["screen_state"]! == "ProductNotExistOnResponse")
+    } else if((string)ViewData["screen_state"]! == "ProductNotExistOnModify")
     {
         <h2>:|</h2>
         <br/>
 
         <p>The product to modify doesn't exist.</p>
     }
+    else if ((string)ViewData["screen_state"]! == "ProductModifiedFailed")
+    {
+        <h2>:/</h2>
+        <br/>
 
-    <h2>:D</h2>
+        <p>The product wasn't modified. Oops.</p>
+    } else
+    {
+        <h2>:D</h2>
 
-    <p>The product with ID @((Product)ViewData["new_product_data"]!).product_id was modified successfully! (Hope)</p>
+        <p>The product was modified successfully! (Hope)</p>
+    }
 }</div>

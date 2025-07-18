@@ -1,0 +1,37 @@
+@using Databasing.Entities
+@using KindoffStore.Models;
+
+@{
+    ViewData["title"] = "Modify Product";
+
+    Product old_product = ViewData["original_product_data"]! as Product;
+}
+
+<div class="app_container" id="app_container" itemid="app_container" name="app_container">@{
+    @model ProductUserRequest
+    @using(Html.BeginForm("ModifyProductResponse", "Product", FormMethod.Post)) {
+        <fieldset>
+            <input name="userform_id" asp-for="userForm.id" value="@old_product.product_id" hidden="true"/>
+            <label for="userform_name">Product Name: (old value: @old_product.product_name)</label>
+            <input class="product_formfield" name="userform_name" asp-for="userForm.name" /> <br/>
+
+            <label for="userform_description">Product Description: (old value: @old_product.product_description)</label>
+            <input class="product_formfield" name="userform_description" asp-for="userForm.description" /> <br/>
+
+            <label for="userform_weight">Product Weight: (old value: @old_product.product_weight)</label>
+            <input class="product_formfield" name="userform_weight" asp-for="userForm.weight" />
+            @Html.DropDownList("userform_weight_unit") <br/>
+
+            <label for="userform_existence">Product Existence: (old value: @old_product.product_existence)</label>
+            <input class="product_formfield" name="userform_existence" asp-for="userForm.existence" /> <br/>
+
+            <label for="userform_price">Product Price: (old value: @old_product.product_price)</label>
+            <input class="product_formfield" name="userform_price" asp-for="userForm.price" /> <br/>
+
+
+            <!-- <input class="product_submit_button" type="submit" value="Modify Product" /> -->
+            <input class="product_submit_button" type="submit" value="Modify Product"></input>
+            <input class="product_resetform_button" type="reset" value="Clear fields" />
+        </fieldset>
+    }
+}</div>

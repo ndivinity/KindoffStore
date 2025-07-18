@@ -15,10 +15,13 @@
     padding-right: 15px;
 }
 
+.refresh_list_button {
+    float: left;
+}
+
 .sad_emoticon {
     /* Stolen from: https://piktochart.com/tips/shades-of-vermilion */
     color: #b94e48;
-
     font-style: italic;
     font-family: "Cambria", monospace;
 }
