@@ -1,0 +1,59 @@
+@using Databasing;
+@using Microsoft.EntityFrameworkCore;
+@using Databasing.Entities;
+
+@model IEnumerable<Product>
+
+@{
+    ViewData["title"] = "Products";
+
+    IEnumerable<Product> products = Model;
+}
+
+<script>
+    const redirectToCreateButton = function() {
+        window.location.href = "/Product/CreateProduct";
+    };
+</script>
+
+<div class="app_container text-center" id="app_container" itemid="app_container" name="app_container">@{
+    <button onclick="redirectToCreateButton()" class="create_product_button">Create Product</button>
+    <br/>
+<<<<<<< Updated upstream
+    
+    @if(Model.Count() > 0) {
+=======
+
+    @if(products != null && products.Any()) {
+>>>>>>> Stashed changes
+        @using(Html.BeginForm("DeletePost", "Product", FormMethod.Post)) {
+            <table>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                    <th>Product Existences</th>
+                    <th>Product Weights</th>
+                    <th>Should delete?</th>
+                </tr>
+
+                <!-- FIXME: iterating "Model" is confusing -->
+                @foreach(Product prod in Model) {
+                    <tr>
+                        <td>@prod.product_id</td>
+                        <td>@prod.product_name</td>
+                        <td>@prod.product_description</td>
+                        <td>@prod.product_existence</td>
+                        <td>@prod.product_weight</td>
+                        <td><button name="product_id" value="@prod.product_id" asp-controller="Product" asp-action="DeleteProduct">Delete</button></td>
+                    </tr>
+                }
+            </table>
+        }
+
+    } else {
+        <h2 class="sad_emoticon">:(</h2>
+        <br/>
+        <p>The product list is empty</p>
+    }
+}</div>

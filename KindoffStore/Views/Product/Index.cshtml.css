@@ -1,0 +1,24 @@
+.app_container {
+    background-color: #d8d7d7;
+
+    border-radius: 10px;
+}
+
+.create_product_button {
+    float: right;
+
+    background-color: rgb(204, 117, 18);
+    color: rgb(20, 20, 75);
+
+    border-radius: 8px;
+
+    padding-right: 15px;
+}
+
+.sad_emoticon {
+    /* Stolen from: https://piktochart.com/tips/shades-of-vermilion */
+    color: #b94e48;
+
+    font-style: italic;
+    font-family: "Cambria", monospace;
+}

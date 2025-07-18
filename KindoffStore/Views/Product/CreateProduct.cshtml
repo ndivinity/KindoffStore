@@ -1,0 +1,29 @@
+@using KindoffStore.Models;
+
+@{
+    ViewData["title"] = "Create Product";
+}
+
+<div class="app_container" id="app_container" itemid="app_container" name="app_container">@{
+    @model ProductUserRequest
+    @using(Html.BeginForm("CreateProductResponse", "Product", FormMethod.Post)) {
+        <fieldset>
+            <label for="userform_name">Product Name:</label>
+            <input class="product_formfield" name="userform_name" asp-for="userForm.name" /> <br/>
+
+            <label for="userform_description">Product Description:</label>
+            <input class="product_formfield" name="userform_description" asp-for="userForm.description" /> <br/>
+
+            <label for="userform_weight">Product Weight:</label>
+            <input class="product_formfield" name="userform_weight" asp-for="userForm.weight" />
+            @Html.DropDownList("userform_weight_unit") <br/>
+
+            <label for="userform_existence">Product Existence:</label>
+            <input class="product_formfield" name="userform_existence" asp-for="userForm.existence" /> <br/>
+
+
+            <input class="product_submit_button" type="submit" value="Create Product" />
+            <input class="product_resetform_button" type="reset" value="Clear fields" />
+        </fieldset>
+    }
+}</div>

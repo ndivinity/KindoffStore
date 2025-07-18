@@ -1,0 +1,17 @@
+@using System;
+@{}
+
+<div class="app_container" id="app_container" itemid="app_container" name="app_container">@{
+    @if(ViewData["screen_state"]!.Equals("ProductExists")) {
+        <h2>:/</h2>
+        <br/>
+
+        <p>The product you tried to create already exists. Maybe see the <a href="/Product/Index">product list</a> to see it's details?</p>
+    } else {
+        <h2>:(</h2>
+        <br/>
+
+        <p>The screen <strong>@ViewData["screen_state"]</strong> isn't implemented yet.</p>
+        <p>Maybe go back to the <a href="/">home</a> page?</p>
+    }
+}</div>

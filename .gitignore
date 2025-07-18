@@ -1,0 +1,11 @@
+# KindoffStore
+
+.vs
+
+assets/kindoff_store_database.sdb3
+
+notes.md
+
+KindoffStore/bin
+KindoffStore/obj
+KindoffStore/Migrations
