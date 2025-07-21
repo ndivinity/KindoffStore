@@ -1,4 +1,5 @@
 ﻿
+using BusinessLogic.Core;
 using Databasing;
 using Databasing.Entities;
 
@@ -8,7 +9,7 @@ namespace BusinessLogic;
 
 // This is a singleton fr
 // At least EF says it will be.
-public class ProductManager
+public class ProductManager: ICSingletonify
 {
     private readonly IDbContextFactory<DatabaseContext> ctx_factory;
 

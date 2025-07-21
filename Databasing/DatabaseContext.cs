@@ -7,7 +7,7 @@ namespace Databasing;
 public class DatabaseContext: DbContext
 {
 	public DbSet<Product> products { get; set; }
-	public DbSet<Client> clients { get; set; }
+	public DbSet<Customer> customers { get; set; }
 
 	public DatabaseContext(DbContextOptions<DatabaseContext> opts)
 	: base(opts)

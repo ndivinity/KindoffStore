@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 using SQLitePCL;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Security.Cryptography.X509Certificates;
 
 using Databasing;
 using Databasing.Entities;

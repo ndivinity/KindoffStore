@@ -20,6 +20,7 @@ class Program
 
         #region Singleton yada-yada
         builder.Services.AddSingleton<ProductManager>();
+        builder.Services.AddSingleton<CustomerManager>();
         #endregion
 
         WebApplication app = builder.Build();

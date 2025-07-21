@@ -1,0 +1,66 @@
+﻿@using KindoffStore.Models;
+
+@model CustomerCreateResponseModel
+
+@{
+    ViewData["title"] = "Customer created!";
+}
+
+<div class="app_container" id="app_container" name="app_container">@{
+        @switch(Model.GetCurrentState())
+        {
+            case CustomerCreateViewState.CreateSuccess: {
+                <h2>:D</h2>
+                <br/>
+
+                <h3>Product created successfully!</h3>
+                <br/>
+
+                <ul>
+                    <li>Name: @Model.new_customer.customer_name</li>
+                    <li>Address: @Model.new_customer.customer_address</li>
+                    <li>Telephone: @Model.new_customer.customer_telephone</li>
+                </ul>
+            } break;
+
+            case CustomerCreateViewState.CreateFailedExists: {
+                <h2>:/</h2>
+                <br/>
+
+                <h3>The product alredy exists</h3>
+                
+                @if(Model.old_customer != null)
+                {
+                    <ul>
+                        <li>Customer id: @Model.old_customer.customer_id</li>
+                        <li>Customer name: @Model.old_customer.customer_name</li>
+                        <li>Customer address: @Model.old_customer.customer_address</li>
+                        <li>Customer telephone: @Model.old_customer.customer_telephone</li>
+                    </ul>
+                } else {
+                    <p>The details of the existing product couldn't be retrieved at this moment.</p>
+                }
+
+                <p>Go see it on the <a href="/Customer/Index">customer list</a>.</p>
+            } break;
+
+            case CustomerCreateViewState.CreateFailedUndefined: {
+                <h2>:|</h2>
+                <br/>
+
+                <p>The customer couldn't be created.</p>
+            } break;
+
+            case CustomerCreateViewState.NotSpecified:
+            case CustomerCreateViewState.Default:
+            case CustomerCreateViewState.None:
+            default: {
+                    <h2>:|</h2>
+                    <br/>
+
+                    <p>This is weird, you shouldn't be reading this.</p>
+                    <p>View state:</p>
+                    <pre>@Model.GetCurrentState().ToString()</pre>
+            } break;
+        }
+    }</div>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Core;
 
-public interface ISingletonify
+public abstract class ICSingletonify
 {
-    SingletonType GetInstance<SingletonType>() { throw new NotImplementedException(); }
+    //SingletonType GetInstance<SingletonType>() { throw new NotImplementedException(); }
 }

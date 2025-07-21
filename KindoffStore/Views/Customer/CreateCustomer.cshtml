@@ -1,0 +1,24 @@
+@using KindoffStore.Models;
+
+@{
+    ViewData["title"] = "Create Customer";
+}
+@model CustomerCreateModel
+
+<div class="app_container" id="app_container" itemid="app_container" name="app_container">@{
+    @using(Html.BeginForm("CreateCustomerResponse", "Customer", FormMethod.Post)) {
+        <fieldset>
+            <label for="userform_name">Customer Name:</label>
+            <input class="customer_formfield" name="userform_name" asp-for="customer_form.name" /> <br/>
+
+            <label for="userform_description">Customer Address:</label>
+            <input class="customer_formfield" name="userform_address" asp-for="customer_form.address" /> <br/>
+
+            <label for="userform_weight">Customer Telephone:</label>
+            <input class="product_formfield" name="userform_telephone" asp-for="customer_form.telephone" />
+
+            <input class="product_submit_button" type="submit" value="Create Customer" />
+            <input class="product_resetform_button" type="reset" value="Clear fields" />
+        </fieldset>
+    }
+}</div>

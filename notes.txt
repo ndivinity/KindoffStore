@@ -1,0 +1,24 @@
+Stuff that I have to add:
+
+- Customers notions
+  - Customer list
+  - Create customers
+  - Delete customers
+  - Modify customers
+
+- Sales notions
+  - Create sale
+    - Details of a sale
+      - Date/Time
+      - Customer
+      - Product(s) id(s)
+      - Product(s) amount
+      - Product totale
+    - Store product ids of sale (integer list stored as string in a database!!!!???)
+      - Check if product is registrered
+    - Store product amounts of the sale
+      - Check if there's enough stock of the product
+    - Store sale totale
+    - Associate (if applicable) a customer to the sale (foreign key time!)
+  - Revert (cancel) a sale
+  - Delete (why thou?) a sale

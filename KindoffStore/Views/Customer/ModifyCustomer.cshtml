@@ -1,0 +1,28 @@
+@model ModifyCustomerModel
+
+@using Databasing.Entities
+@using KindoffStore.Models;
+
+@{
+    ViewData["title"] = "Modify customer";
+}
+
+<div class="app_container" id="app_container" itemid="app_container" name="app_container">@{
+    @using(Html.BeginForm("ModifyCustomerResponse", "Customer", FormMethod.Post)) {
+        <fieldset>
+            <input name="userform_id" asp-for="user_form.id" value="@Model.old_customer_data.customer_id" hidden="true" />
+
+            <label for="userform_name">Customer Name: (old value: @Model.old_customer_data.customer_name)</label>
+            <input class="customer_formfield" name="userform_name" asp-for="user_form.name" /> <br/>
+
+            <label for="userform_address">Customer Address: (old value: @Model.old_customer_data.customer_address)</label>
+            <input class="customer_formfield" name="userform_address" asp-for="user_form.address" /> <br/>
+
+            <label for="userform_telephone">Customer Telephone: (old value: @Model.old_customer_data.customer_telephone)</label>
+            <input class="customer_formfield" name="userform_telephone" asp-for="user_form.telephone" />
+
+            <input class="customer_submit_button" type="submit" value="Modify Customer"></input>
+            <input class="customer_resetform_button" type="reset" value="Clear fields" />
+        </fieldset>
+    }
+}</div>

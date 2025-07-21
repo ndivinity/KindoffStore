@@ -1,0 +1,48 @@
+﻿@model ModifyCustomerResponseModel
+
+@{
+    ViewData["title"] = "Product modified!";
+}
+
+<div name="app_container" id="app_container" class="app_container">@{
+    @switch(Model.GetCurrentState()) {
+        case CustomerModifyResponseViewState.Success: {
+            <h2>:D</h2>
+            <br/>
+
+            <p>The customer data was modified successfully!</p>
+
+            <h5>Modification</h5>
+            <ul>
+                <li>Customer name: @Model.old_customer_data.customer_name -> @Model.new_customer_data.customer_name</li>
+                <li>Customer address: @Model.old_customer_data.customer_address -> @Model.new_customer_data.customer_address</li>
+                <li>Customer telephone: @Model.old_customer_data.customer_telephone -> @Model.new_customer_data.customer_telephone</li>
+            </ul>
+        } break;
+
+        case CustomerModifyResponseViewState.FailedNotExist: {
+            <h2>:|</h2>
+            <br/>
+
+            <p>The customer to modify doesn't exist!</p>
+        } break;
+
+        case CustomerModifyResponseViewState.FailedUndefined: {
+            <h2>:/</h2>
+            <br/>
+
+            <p>Failed to modify the customer data!</p>
+        } break;
+
+        default: {
+            <h2>??</h2>
+            <br/>
+
+            <h3>Ehm... This screen should be unreachable...</h3>
+            <br/>
+
+            <p>View state:</p>
+            <pre>@Model.GetCurrentState()</pre>
+        } break;
+    }
+}</div>
